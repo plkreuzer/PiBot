@@ -68,7 +68,7 @@ def changePWM(chan, pin, start, width):
   
 def setupGPIO():
   pygame.mixer.init()
-  pygame.mixer.music.load('/home/pi/nas/sounds/bark.wav')
+  pygame.mixer.music.load('/home/pi/nas/PiBot/sounds/bark.wav')
   GPIO.setmode(GPIO.BOARD)
   GPIO.setup(PIR_CHAN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
   GPIO.setup(MOTOR_P1, GPIO.OUT, pull_up_down=GPIO.PUD_DOWN)
@@ -118,16 +118,16 @@ def motor_spin_right(speed):
   GPIO.output(MOTOL_P2, GPIO.LOW)
 
 def motor_stop():
-  changePWM(PWM_DMA_CHAN, MOTOR_EN, 0, speed)
-  changePWM(PWM_DMA_CHAN, MOTOL_EN, 0, speed)
+  changePWM(PWM_DMA_CHAN, MOTOR_EN, 0, MOTOR_SPEED_OFF)
+  changePWM(PWM_DMA_CHAN, MOTOL_EN, 0, MOTOR_SPEED_OFF)
   GPIO.output(MOTOR_P1, GPIO.LOW)
   GPIO.output(MOTOR_P2, GPIO.LOW)
   GPIO.output(MOTOL_P1, GPIO.LOW)
   GPIO.output(MOTOL_P2, GPIO.LOW)
 
 def motor_coast():
-  changePWM(PWM_DMA_CHAN, MOTOR_EN, 0, speed)
-  changePWM(PWM_DMA_CHAN, MOTOL_EN, 0, speed)
+  changePWM(PWM_DMA_CHAN, MOTOR_EN, 0, MOTOR_SPEED_OFF)
+  changePWM(PWM_DMA_CHAN, MOTOL_EN, 0, MOTOR_SPEED_OFF)
   GPIO.output(MOTOR_P1, GPIO.LOW)
   GPIO.output(MOTOR_P2, GPIO.LOW)
   GPIO.output(MOTOL_P1, GPIO.LOW)
