@@ -68,7 +68,7 @@ def changePWM(chan, pin, start, width):
   
 def setupGPIO():
   pygame.mixer.init()
-  pygame.mixer.music.load('/home/pi/nas/PiBot/sounds/bark.wav')
+  pygame.mixer.music.load('/home/pi/nas/devel/PiBot/sounds/bark.wav')
   GPIO.setmode(GPIO.BOARD)
   GPIO.setup(PIR_CHAN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
   GPIO.setup(MOTOR_P1, GPIO.OUT, pull_up_down=GPIO.PUD_DOWN)
